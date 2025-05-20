@@ -37,7 +37,7 @@ export default function TransactionPopup({
         </TYPE.body>
         {chainId && (
           <ExternalLink href={getEtherscanLink(chainId, hash, 'transaction')}>
-            {t('View on NewtonExplorer')}
+            {t('View on ABExplorer')}
           </ExternalLink>
         )}
       </AutoColumn>

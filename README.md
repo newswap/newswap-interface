@@ -1,6 +1,6 @@
 # Newswap Interface
 
-An open source interface for Newswap -- a protocol for decentralized exchange of tokens on NewChain.
+An open source interface for Newswap -- a protocol for decentralized exchange of tokens on AB.
 
 - Website: [newswap.org](https://newswap.org/)
 - Interface: [app.newswap.org](https://app.newswap.org)

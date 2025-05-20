@@ -365,7 +365,7 @@ export default function AccountDetails({
                             href={chainId && getEtherscanLink(chainId, ENSName, 'address')}
                           >
                             <LinkIcon size={16} />
-                            <span style={{ marginLeft: '4px' }}>{t('View on NewtonExplorer')}</span>
+                            <span style={{ marginLeft: '4px' }}>{t('View on ABExplorer')}</span>
                           </AddressLink>
                         )}
                       </div>
@@ -387,7 +387,7 @@ export default function AccountDetails({
                             href={getEtherscanLink(chainId, account, 'address')}
                           >
                             <LinkIcon size={16} />
-                            <span style={{ marginLeft: '4px' }}>{t('View on NewtonExplorer')}</span>
+                            <span style={{ marginLeft: '4px' }}>{t('View on ABExplorer')}</span>
                           </AddressLink>
                         )}
                       </div>

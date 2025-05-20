@@ -299,7 +299,7 @@ export default function AddLiquidity({
           history.push(`/add/${newCurrencyIdB}`)
         }
       } else {
-        history.push(`/add/${currencyIdA ? currencyIdA : 'NEW'}/${newCurrencyIdB}`)
+        history.push(`/add/${currencyIdA ? currencyIdA : 'AB'}/${newCurrencyIdB}`)
       }
     },
     [currencyIdA, history, currencyIdB]

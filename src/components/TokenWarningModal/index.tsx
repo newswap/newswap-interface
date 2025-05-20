@@ -76,7 +76,7 @@ function TokenWarningCard({ token }: TokenWarningCardProps) {
           {chainId && (
             <ExternalLink style={{ fontWeight: 400 }} href={getEtherscanLink(chainId, token.address, 'token')}>
               <TYPE.blue title={token.address}>
-                {shortenAddress(token.address)} ({t('(View on NewtonExplorer')})
+                {shortenAddress(token.address)} ({t('(View on ABExplorer')})
               </TYPE.blue>
             </ExternalLink>
           )}
@@ -109,7 +109,7 @@ export default function TokenWarningModal({
             <TYPE.main color={'red2'}>{t('Token imported')}</TYPE.main>
           </AutoRow>
           <TYPE.body color={'red2'}>
-            {t('Anyone can create an NRC6 token on NewChain with any name, Please take extra caution!')}
+            {t('Anyone can create an NRC6 token on AB with any name, Please take extra caution!')}
           </TYPE.body>
           {tokens.map(token => {
             return <TokenWarningCard key={token.address} token={token} />

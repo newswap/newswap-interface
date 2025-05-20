@@ -19,6 +19,9 @@ function hexAddress2NewAddress(hexAddress: string | null | undefined, chainId: s
   if (hexAddress === undefined || hexAddress === null || chainId === undefined) {
     return ''
   }
+  if (chainId !== devChainId && chainId !== testChainId && chainId !== mainChainId) {
+    return hexAddress
+  }
   hexAddress = hexAddress.trim()
   if (hexAddress.startsWith(PREFIX)) {
     return hexAddress
@@ -55,7 +58,7 @@ function newAddress2HexAddress(newAddress: string | undefined): string {
 }
 
 /**
- * check address is valid NEW address head or not
+ * check address is valid AB address head or not
  * @param {string|undefined} address
  * @returns {boolean}
  */
@@ -70,7 +73,7 @@ function isValidNewAddressHead(address: string | undefined): boolean {
 }
 
 /**
- * check address is valid NEW address or not
+ * check address is valid AB address or not
  * @param {string|undefined} address
  * @returns {boolean}
  */

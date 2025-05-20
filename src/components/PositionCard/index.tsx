@@ -130,7 +130,7 @@ export default function FullPositionCard({ pair, border }: PositionCardProps) {
   const { account, chainId } = useActiveWeb3React()
   const { t } = useTranslation()
   let infoUrlPrefix = TESTNET_INFO_URL_PREFIX
-  if (chainId === ChainId.NEWCHAINMAIN) {
+  if (chainId === ChainId.ABIOT) {
     infoUrlPrefix = MAINNET_INFO_URL_PREFIX
   }
 

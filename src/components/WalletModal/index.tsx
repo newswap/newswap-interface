@@ -299,7 +299,7 @@ export default function WalletModal({
           <HeaderRow>{error instanceof UnsupportedChainIdError ? t('Wrong Network') : t('Error connecting')}</HeaderRow>
           <ContentWrapper>
             {error instanceof UnsupportedChainIdError ? (
-              <h5>{t('Please connect to the appropriate NewChain network.')}</h5>
+              <h5>{t('Please connect to the appropriate AB network.')}</h5>
             ) : (
               t('Error connecting. Try refreshing the page.')
             )}
@@ -352,7 +352,7 @@ export default function WalletModal({
           )}
           {walletView !== WALLET_VIEWS.PENDING && (
             <Blurb>
-              <span>{t('New to NewChain?')} &nbsp;</span>{' '}
+              <span>{t('New to AB?')} &nbsp;</span>{' '}
               <ExternalLink href="https://newswap.org/tools/">{t('Learn more about wallets')}</ExternalLink>
             </Blurb>
           )}

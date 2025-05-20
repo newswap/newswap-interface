@@ -3,7 +3,11 @@ import { AbstractConnector } from '@web3-react/abstract-connector'
 
 import { injected } from '../connectors'
 
-export const ROUTER_ADDRESS = '0x9e5A14dd31D1e7120eC45E6E4EfA287c94bCcf2f'
+const NETWORK_CHAIN_ID: number = parseInt(process.env.REACT_APP_CHAIN_ID ?? '1')
+export const ROUTER_ADDRESS =
+  NETWORK_CHAIN_ID === ChainId.ABIOT || NETWORK_CHAIN_ID === ChainId.ABIOTTEST
+    ? '0x9e5A14dd31D1e7120eC45E6E4EfA287c94bCcf2f'
+    : '0xB3f323cc7514D279769AeEA1419bc644088D69Da'
 
 // a list of tokens by chain
 type ChainTokenList = {
@@ -23,8 +27,10 @@ const WETH_ONLY: ChainTokenList = {
   [ChainId.RINKEBY]: [WETH[ChainId.RINKEBY]],
   [ChainId.GÖRLI]: [WETH[ChainId.GÖRLI]],
   [ChainId.KOVAN]: [WETH[ChainId.KOVAN]],
-  [ChainId.NEWCHAINTEST]: [WETH[ChainId.NEWCHAINTEST]],
-  [ChainId.NEWCHAINMAIN]: [WETH[ChainId.NEWCHAINMAIN]]
+  [ChainId.ABIOTTEST]: [WETH[ChainId.ABIOTTEST]],
+  [ChainId.ABIOT]: [WETH[ChainId.ABIOT]],
+  [ChainId.ABCORETEST]: [WETH[ChainId.ABCORETEST]],
+  [ChainId.ABCORE]: [WETH[ChainId.ABCORE]]
 }
 
 // used to construct intermediary pairs for trading
@@ -90,8 +96,9 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
   },
   METAMASK: {
     connector: injected,
-    name: 'NewMask',
-    iconName: 'metamask.png',
+    name: NETWORK_CHAIN_ID === ChainId.ABIOT || NETWORK_CHAIN_ID === ChainId.ABIOTTEST ? 'NewMask' : 'MetaMask',
+    iconName:
+      NETWORK_CHAIN_ID === ChainId.ABIOT || NETWORK_CHAIN_ID === ChainId.ABIOTTEST ? 'newmask.png' : 'metamask.png',
     description: 'Easy-to-use browser extension.',
     href: null,
     color: '#E8831D'

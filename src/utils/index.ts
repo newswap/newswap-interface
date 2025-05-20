@@ -24,17 +24,22 @@ const ETHERSCAN_PREFIXES: { [chainId in ChainId]: string } = {
   4: 'rinkeby.',
   5: 'goerli.',
   42: 'kovan.',
-  1007: 'newchaintest.',
-  1012: 'newchainmain.'
+  1007: 'abiottest.',
+  1012: 'abiot.',
+  26888: 'abcoretest.',
+  36888: 'abcore.'
 }
 
 export function getEtherscanLink(chainId: ChainId, data: string, type: 'transaction' | 'token' | 'address'): string {
   let prefix = `https://${ETHERSCAN_PREFIXES[chainId] || ETHERSCAN_PREFIXES[1]}etherscan.io`
-  if (chainId === ChainId.NEWCHAINTEST) {
-    prefix = 'https://explorer.testnet.newtonproject.org'
-  }
-  if (chainId === ChainId.NEWCHAINMAIN) {
-    prefix = 'https://explorer.newtonproject.org'
+  if (chainId === ChainId.ABIOTTEST) {
+    prefix = 'https://explorer.testnet.ab.org'
+  } else if (chainId === ChainId.ABIOT) {
+    prefix = 'https://explorer.ab.org'
+  } else if (chainId === ChainId.ABCORETEST) {
+    prefix = 'https://explorer.core.testnet.ab.org'
+  } else if (chainId === ChainId.ABCORE) {
+    prefix = 'https://explorer.core.ab.org'
   }
 
   switch (type) {
@@ -99,7 +104,7 @@ export function getProviderOrSigner(library: Web3Provider, account?: string): We
 // account is optional
 export function getContract(address: string, ABI: any, library: Web3Provider, account?: string): Contract {
   if (!isAddress(address) || address === AddressZero) {
-    throw Error(`Invalid 'address' parameter '${address}'.`)
+    throw Error(`Invalid contract 'address' parameter '${address}'.`)
   }
 
   return new Contract(address, ABI, getProviderOrSigner(library, account) as any)
